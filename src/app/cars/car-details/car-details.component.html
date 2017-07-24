@@ -10,5 +10,6 @@
     <dt>Description</dt>
     <dd>{{ theCar?.description }}</dd>
   </dl>
-  <a routerLink="/cars" class="btn btn-default">Back to list</a>
+  <a [routerLink]="['../']" class="btn btn-default">Back to list</a>
+  <a [routerLink]="['./../../admin']" class="btn btn-default">Admin</a>
 </div>

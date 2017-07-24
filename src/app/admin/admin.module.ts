@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router'
 
-import { AdminDashboardComponent as AdminDashboard } from './admin-dashboard/admin-dashboard.component'
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminDashboardComponent as AdminDashboard } from './admin-dashboard/admin-dashboard.component';
+import { SecretComponent } from './secret-component/secret-component.component'
 
-const adminRoutes: Routes = [
-  {path: 'admin', component: AdminDashboard}
-];
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule.forRoot(adminRoutes)
+    AdminRoutingModule
   ],
-  declarations: [AdminDashboard],
-  exports: [RouterModule]
+  declarations: [AdminDashboard, SecretComponent]
 })
 export class AdminModule { }
