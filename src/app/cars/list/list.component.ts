@@ -10,12 +10,16 @@ import { CarsService } from './../cars.service';
 export class CarsListComponent implements OnInit {
 
   public cars: Array<any> = [];
+  public loading: boolean = true;
 
   constructor(private carsService: CarsService) { }
 
   ngOnInit() {
     this.carsService.getCars()
       .map(data => data.json())
-      .subscribe(data => this.cars = data)
+      .subscribe(data => {
+        this.cars = data
+        this.loading = false;
+      })
   }
 }

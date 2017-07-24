@@ -8,11 +8,15 @@
         <th>Brand</th>
         <th>Model</th>
         <th>Engine</th>
+        <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngIf="!cars.length">
-        <td colspan="4">No items found</td>
+      <tr *ngIf="loading">
+        <td colspan="5">Loading...</td>
+      </tr>
+      <tr *ngIf="!cars.length && !loading">
+        <td colspan="5">No items found</td>
       </tr>
       <tr *ngFor="let car of cars">
         <td>{{car.id}}</td>
@@ -20,6 +24,13 @@
         <td>{{car.model}}</td>
         <td>{{car.engineCap}}</td>
         <td><a [routerLink]="['/cars', car.id]" class="link">Details</a></td>
+      </tr>
+      <tr *ngIf="!loading && cars.length">
+        <td>1000</td>
+        <td>Fake</td>
+        <td>Model</td>
+        <td>5000</td>
+        <td><a [routerLink]="['/cars', 3000]" class="link">Details</a></td>
       </tr>
     </tbody>
   </table>

@@ -1,15 +1,20 @@
 <div class="row">
-  <h2>Details for {{theCar?.brandName}} {{ theCar?.model }}</h2>
-  <dl class="dl-horizontal">
-    <dt>Brand Name</dt>
-    <dd>{{ theCar?.brandName }}</dd>
-    <dt>Model</dt>
-    <dd>{{ theCar?.model }}</dd>
-    <dt>Engine Cap</dt>
-    <dd>{{ theCar?.engineCap }}</dd>
-    <dt>Description</dt>
-    <dd>{{ theCar?.description }}</dd>
-  </dl>
+  <div *ngIf="loading">Loading...</div>
+  <div class="alert alert-danger" *ngIf="errMsg">{{errMsg}}</div>
+  <div *ngIf="!loading && !errMsg">
+    <h2>Details for {{theCar?.brandName}} {{ theCar?.model }}</h2>
+    <dl class="dl-horizontal">
+      <dt>Brand Name</dt>
+      <dd>{{ theCar?.brandName }}</dd>
+      <dt>Model</dt>
+      <dd>{{ theCar?.model }}</dd>
+      <dt>Engine Cap</dt>
+      <dd>{{ theCar?.engineCap }}</dd>
+      <dt>Description</dt>
+      <dd>{{ theCar?.description }}</dd>
+    </dl>
+  </div>
+
   <a [routerLink]="['../']" class="btn btn-default">Back to list</a>
   <a [routerLink]="['./../../admin']" class="btn btn-default">Admin</a>
 </div>
