@@ -1,0 +1,26 @@
+<div class="row">
+  <h2>Cars list</h2>
+  <p class="text-muted">Some cars</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Engine</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!cars.length">
+        <td colspan="4">No items found</td>
+      </tr>
+      <tr *ngFor="let car of cars">
+        <td>{{car.id}}</td>
+        <td>{{car.brandName}}</td>
+        <td>{{car.model}}</td>
+        <td>{{car.engineCap}}</td>
+        <td><a [routerLink]="['/cars', car.id]" class="link">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
